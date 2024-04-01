@@ -1,4 +1,4 @@
-import Pokedex from './Pokedex';
+import Pokegame from './Pokegame';
 
 
 /** Component for entire page.
@@ -9,7 +9,7 @@ import Pokedex from './Pokedex';
 function App() {
   return (
     <div className="App">
-      <Pokedex />
+      <Pokegame />
     </div>
   );
 };
