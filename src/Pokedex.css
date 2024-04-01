@@ -1,0 +1,19 @@
+.Pokedex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Pokedex-title {
+  font-size: 20px;
+  color: gray;
+  padding-top: 30px;
+}
+
+.Pokedex-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1200px;
+}

@@ -1,0 +1,13 @@
+.Pokecard-title {
+  color: blue;
+}
+
+.Pokecard-card {
+  background-color: rgb(216, 213, 213) !important;
+  text-align: center;
+  margin: 40px;
+  padding: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 200px;
+}
