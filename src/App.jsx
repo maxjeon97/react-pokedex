@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import logo from './logo.svg'
+
 import './App.css';
+import Pokedex from './Pokedex';
 
 
 /** Component for entire page.
@@ -11,28 +11,20 @@ import './App.css';
 */
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  function incrCount() {
-    setCount(count => count + 1);
-  }
+  const pokemon = [
+  {id: 4,   name: 'Charmander', type: 'fire',     base_experience: 62},
+  {id: 7,   name: 'Squirtle',   type: 'water',    base_experience: 63},
+  {id: 11,  name: 'Metapod',    type: 'bug',      base_experience: 72},
+  {id: 12,  name: 'Butterfree', type: 'flying',   base_experience: 178},
+  {id: 25,  name: 'Pikachu',    type: 'electric', base_experience: 112},
+  {id: 39,  name: 'Jigglypuff', type: 'normal',   base_experience: 95},
+  {id: 94,  name: 'Gengar',     type: 'poison',   base_experience: 225},
+  {id: 133, name: 'Eevee',      type: 'normal',   base_experience: 65}
+]
 
   return (
     <div className="App">
-      <main>
-        <img src={logo} className="App-logo" alt="Rithm" />
-        <h1>Rithm React Starter</h1>
-        <p>
-          <button
-              className="btn btn-primary"
-              onClick={incrCount}>
-            Clicked: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>src/App.jsx</code>
-        </p>
-      </main>
+      <Pokedex pokemon={pokemon} />
     </div>
   );
 };
