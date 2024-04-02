@@ -2,7 +2,7 @@ import Pokegame from './Pokegame';
 
 
 /** Component for entire page.
- * Renders Pokedex component, passing in array of pokemon data objects as a property
+ * Renders Pokegame component
  *
 */
 

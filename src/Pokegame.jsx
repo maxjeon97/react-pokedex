@@ -30,7 +30,7 @@ function remove(items, item) {
     return undefined;
 }
 
-/**Returns a random integer between two integers */
+/**Returns a random integer between two integers (including min, excluding max)*/
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
@@ -43,21 +43,21 @@ function calculateTotalExp(deck) {
     // return total;
 }
 
-
+/**Takes in an array of pokemon data, splits the array into two decks, renders a Pokedex component for each deck, returns Pokegame component */
 function Pokegame({pokemon = pokemons}) {
-    const FIRST_DECK = [];
-    const SECOND_DECK = [];
+    const firstDeck = [];
+    const secondDeck = [];
     const halfLength = pokemon.length/2;
 
     for (let i = 0; i < halfLength; i++) {
-        let randomPokemon = choice(pokemon);
-        FIRST_DECK.push(randomPokemon);
+        const randomPokemon = choice(pokemon);
+        firstDeck.push(randomPokemon);
         remove(pokemon, randomPokemon);
     }
-    SECOND_DECK.push(...pokemon);
+    secondDeck.push(...pokemon);
 
-    const firstDeckExp = calculateTotalExp(FIRST_DECK);
-    const secondDeckExp = calculateTotalExp(SECOND_DECK);
+    const firstDeckExp = calculateTotalExp(firstDeck);
+    const secondDeckExp = calculateTotalExp(secondDeck);
 
     const firstDeckWinStatus = firstDeckExp > secondDeckExp
     ? true
@@ -69,8 +69,8 @@ function Pokegame({pokemon = pokemons}) {
 
     return (
         <div className="Pokegame">
-            <Pokedex pokemon={FIRST_DECK} totalExp={firstDeckExp} isWinner={firstDeckWinStatus}/>
-            <Pokedex pokemon={SECOND_DECK} totalExp={secondDeckExp} isWinner={secondDeckWinStatus}/>
+            <Pokedex deckNumber={1} pokemon={firstDeck} totalExp={firstDeckExp} isWinner={firstDeckWinStatus}/>
+            <Pokedex deckNumber={2} pokemon={secondDeck} totalExp={secondDeckExp} isWinner={secondDeckWinStatus}/>
         </div>
     )
 }
