@@ -35,12 +35,12 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
+/**Calculates and returns total exp from an array of pokemon data*/
 function calculateTotalExp(deck) {
-    // return deck.reduce((acc, d) => acc + d.base_experience, 0)
-    let total = 0;
-    deck.forEach(p => total += p.base_experience);
-    return total;
-
+    return deck.reduce((acc, d) => acc + d.base_experience, 0)
+    // let total = 0;
+    // deck.forEach(p => total += p.base_experience);
+    // return total;
 }
 
 
@@ -59,10 +59,18 @@ function Pokegame({pokemon = pokemons}) {
     const firstDeckExp = calculateTotalExp(FIRST_DECK);
     const secondDeckExp = calculateTotalExp(SECOND_DECK);
 
+    const firstDeckWinStatus = firstDeckExp > secondDeckExp
+    ? true
+    : false;
+
+    const secondDeckWinStatus = firstDeckExp < secondDeckExp
+    ? true
+    : false;
+
     return (
         <div className="Pokegame">
-            <Pokedex pokemon ={FIRST_DECK} exp= {firstDeckExp}/>
-            <Pokedex pokemon ={SECOND_DECK} exp={secondDeckExp}/>
+            <Pokedex pokemon={FIRST_DECK} totalExp={firstDeckExp} isWinner={firstDeckWinStatus}/>
+            <Pokedex pokemon={SECOND_DECK} totalExp={secondDeckExp} isWinner={secondDeckWinStatus}/>
         </div>
     )
 }
